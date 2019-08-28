@@ -21,6 +21,7 @@ v1.0 was released August 28, 2019, and we have several feature ideas in the pipe
 
 * ability to 'report' untracked shady behaviors
 * loserboards for the worst offenders, e.g. OptinMonster
+* ability to disable on specific URLs
 * etcetera
 
 ### Development
