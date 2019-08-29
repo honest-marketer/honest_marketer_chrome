@@ -3,9 +3,9 @@ console.log('running Honest Marketer extension...');
 var elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, span"); // TODO: support 'div'
 
 var wordTypes = ['negative', 'neutral', 'positive']
-var negativeWords = ['!', '#1', "world's leading", 'industry leading', 'instant', 'best', 'superior', 'the future', 'easiest', 'fastest', 'most popular', 'most powerful'];
-var neutralWords = ['everything you need', 'absolute', 'easy', 'fast', 'love', 'better', 'limited time', 'new way', 'powerful', 'popular'];
-var positiveWords = [' rate', 'first', 'patent', 'trademark', 'reviews', 'refund', 'free'];
+var negativeWords = ["!", "#1", "amazing", "best", "easiest", "fastest", "industry leading", "instant", "most popular", "most powerful", "superior", "the future", "world's leading"];
+var neutralWords = ["absolute", "better", "easy", "everything you need", "fast", "limited time", "love", "new way", "popular", "powerful", "vote"];
+var positiveWords = [" free ", " rate", " vote", "first", "patent", "refund", "reviews", "trademark"];
 
 var exitIntentKeywords = ['exit intent', 'exit-intent']; // what else?
 
