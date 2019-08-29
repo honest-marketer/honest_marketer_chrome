@@ -42,6 +42,7 @@ let style = `<style>
   margin: 0px 0px 0px 10px;
   display: inline-block;
   vertical-align: middle;
+  font-size: 13px;
   font-style: normal;
 }
 
