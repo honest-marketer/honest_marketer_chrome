@@ -1,12 +1,14 @@
-function scan(words, type) {
+function scan(wordType) {
+  var words = window[wordType + 'Words'];
+
   for (var i=0, max=elements.length; i < max; i++) {
     var el = elements[i];
 
     if (el.textContent.length > 0) {
       words.forEach(function(word) {
         if (el.textContent.toLowerCase().indexOf(word) > -1) {
-          highlight(el, word, type);
-          logTextWarning(type);
+          highlight(el, word, wordType);
+          logTextWarning(wordType);
         }
       })
     }
@@ -34,15 +36,26 @@ function allNotifications() {
 }
 
 function setupClickListeners(el) {
-  if (el.classList.value.indexOf('close_warnings') > -1) {
-    el.addEventListener('click', function() {
-      allNotifications().forEach(function(el) { el.remove(); })
-    })
-  } else {
-    el.addEventListener('click', function() {
-      this.remove();
-    })
-  }
+  el.addEventListener('click', function() {
+    removeHighlights();
+
+    if (el.classList.value.indexOf('close_warnings') > -1) { hideAllNotifications() }
+    else { el.remove() }
+  });
+}
+
+function hideAllNotifications() {
+  allNotifications().forEach(function(el) { el.remove(); })
+}
+
+function removeHighlights() {
+  wordTypes.forEach(function(wordType) {
+    allHighlights(wordType).forEach(function(el) { el.classList.remove('hm-highlight-' + wordType) })
+  })
+}
+
+function allHighlights(wordType) {
+  return Array.from(document.getElementsByClassName('hm-highlight-' + wordType))
 }
 
 function pageText() {
@@ -80,10 +93,9 @@ function buildNotification(extraClass) {
 }
 
 function calculateOffsetHeight() {
-  var notifications = Array.from(document.getElementsByClassName('honest_marketer_warnings'));
   var space = 0;
 
-  notifications.forEach(function(el) {
+  allNotifications().forEach(function(el) {
     if ((window.innerHeight - el.offsetTop) > space) {
       space = (window.innerHeight - el.offsetTop);
     }

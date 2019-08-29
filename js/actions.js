@@ -1,7 +1,5 @@
 // run checks
-scan(negativeWords, 'negative');
-scan(neutralWords, 'neutral');
-scan(positiveWords, 'positive');
+wordTypes.forEach(function(wordType) { scan(wordType) })
 
-// show user results
+// show results
 createReports();
